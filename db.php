@@ -7,5 +7,5 @@ $password="";
 
 %con=mysqli_connect ($host,$user,$db,$password);
 if (mysqli_connect_error()){
-echo "Database tifak berhubung!:mysqli_connect_error();
+echo "Database tidak berhubung!:mysqli_connect_error();
 }
