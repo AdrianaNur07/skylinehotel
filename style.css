@@ -1,0 +1,91 @@
+/* General page styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #e8f3f8;
+}
+
+/* Header section */
+.header {
+    width: 100%;
+    height: 200px;
+    background: url(hotel.jpg) no-repeat center center;
+    background-size: cover;
+    color: rgb(255, 255, 255);
+    text-align: left;
+    padding-left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+button{
+    background-color: aliceblue;
+    color: white;
+    padding: 5px 20px;
+    display: inline-block;
+}
+
+/* Main content area */
+.content {
+    width: 100%;
+    float: right;
+    margin: 10px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+
+/* Headings */
+h1, h2, h3 {
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* Links */
+a {
+    color: #004991;
+    
+}
+a:hover {
+    text-decoration: underline;
+}
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* removes double borders */
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Table header row */
+table th {
+    background-color: #9dbefc;
+    color: #fff;
+    padding: 10px;
+    border: 3px solid #ffffff;
+}
+
+/* Table body rows */
+table td {
+    padding: 10px;
+    border: 3px solid #ffffff;
+}
+
+/* Alternate row colors */
+table tr:nth-child(even) {
+    background-color: #e7e3fc;
+}
+
+table tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+/* Hover effect */
+table tr:hover {
+    background-color: #d9edf7;
+    cursor: pointer;
+}

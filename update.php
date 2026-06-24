@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Staff</title>
+</head>
+<body>
+
+<?php
+require 'config.php';
+include 'index.php';
+
+/* UPDATE RECORD */
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $StaffID = trim($_POST['StaffID']);
+    $Staffname = trim($_POST['Staffname']);
+    $staffphone = trim($_POST['staffphone']);
+
+$sql2 = "UPDATE staff
+         SET Staffname = '$Staffname',
+             staffphone = '$staffphone'
+         WHERE StaffID = '$StaffID'";
+
+    if ($conn->query($sql2) === TRUE) {
+        echo "<p>Record has been successfully updated.</p>";
+    } else {
+        echo "<p>Error: " . $conn->error . "</p>";
+    }
+}
+?>
+
+<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+<table>
+    <tr>
+        <th colspan="2">Staff To Be Updated</th>
+    </tr>
+
+    <tr>
+        <td>
+            <label>Staff ID:</label>
+            <input type="text" name="StaffID" required>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label>Name:</label>
+            <input type="text" name="Staffname" required>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <label>Phone Number:</label>
+            <input type="text" name="staffphone" required>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <input type="submit" value="Update">
+            <input type="reset" value="Reset">
+        </td>
+    </tr>
+
+</table>
+
+</form>
+
+<br><br>
+
+<?php
+/* DISPLAY TABLE AT BOTTOM */
+
+$sql = "SELECT * FROM staff";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+
+    echo "<h3>Current Staff Records</h3>";
+
+    echo "<table border='1'>
+            <tr>
+                <th>Staff ID</th>
+                <th>Name</th>
+                <th>Phone Number</th>
+            </tr>";
+
+    while ($row = $result->fetch_assoc()) {
+
+        echo "<tr>
+                <td>".$row['StaffID']."</td>
+                <td>".$row['Staffname']."</td>
+                <td>".$row['staffphone']."</td>
+              </tr>";
+    }
+
+    echo "</table>";
+
+} else {
+    echo "No records found.";
+}
+
+$conn->close();
+?>
+
+</body>
+</html>
